@@ -13,6 +13,6 @@ for i in `seq 0 16`; do
 	sudo ipcrm -M $key 2>/dev/null
 done
 
-num_threads=1
+num_threads=$1
 sudo numactl --cpunodebind=0 --membind=0 ./test \
 	--num-threads $num_threads

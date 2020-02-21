@@ -6,8 +6,10 @@
 #define TEST_BATCH_SIZE 16
 #define TEST_VERIFY_VAL 0
 
-#define TEST_NUM_BKTS M_2
-#define TEST_LOG_CAP M_1024
+// #define TEST_NUM_BKTS M_2
+// #define TEST_LOG_CAP M_1024
+#define TEST_NUM_BKTS K_128
+#define TEST_LOG_CAP M_128
 #define TEST_NUM_KEYS (TEST_NUM_BKTS * 4) /* 50% load */
 
 /* Create a random permutation of @key_arr for thread @tid */
