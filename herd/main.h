@@ -30,8 +30,8 @@
 #define MAX_SERVER_PORTS 4
 // #define NUM_WORKERS 12
 // #define NUM_CLIENTS 70
-#define NUM_WORKERS 2
-#define NUM_CLIENTS 2
+#define NUM_WORKERS 4
+#define NUM_CLIENTS 12
 
 
 /* Performance options */

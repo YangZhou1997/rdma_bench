@@ -1,3 +1,5 @@
+# !/bin/bash
+
 # A function to echo in blue color
 function blue() {
 	es=`tput setaf 4`
