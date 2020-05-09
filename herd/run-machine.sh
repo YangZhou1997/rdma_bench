@@ -26,8 +26,8 @@ sudo LD_LIBRARY_PATH=/usr/local/lib/ -E \
 	numactl --cpunodebind=0 --membind=0 ./main \
 	--num-threads $num_threads \
 	--base-port-index 0 \
-	--num-server-ports 2 \
-	--num-client-ports 2 \
+	--num-server-ports 1 \
+	--num-client-ports 1 \
 	--is-client 1 \
 	--update-percentage 0 \
 	--machine-id $1 &

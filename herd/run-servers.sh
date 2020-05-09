@@ -30,7 +30,7 @@ sudo LD_LIBRARY_PATH=/usr/local/lib/ -E \
 	numactl --cpunodebind=0 --membind=0 ./main \
 	--master 1 \
 	--base-port-index 0 \
-	--num-server-ports 2 &
+	--num-server-ports 1 &
 
 # Give the master process time to create and register per-port request regions
 sleep 1
@@ -40,5 +40,5 @@ sudo LD_LIBRARY_PATH=/usr/local/lib/ -E \
 	numactl --cpunodebind=0 --membind=0 ./main \
 	--is-client 0 \
 	--base-port-index 0 \
-	--num-server-ports 2 \
-	--postlist 2 &
+	--num-server-ports 1 \
+	--postlist 1 &
