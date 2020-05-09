@@ -15,7 +15,7 @@
 #define HERD_OP_PUT (MICA_OP_PUT + HERD_MICA_OFFSET)
 
 #define HERD_NUM_BKTS (2 * 1024)
-#define HERD_LOG_CAP (1024 * 1024)
+#define HERD_LOG_CAP (128 * 1024)
 
 #define HERD_NUM_KEYS (8 * 1024)
 #define HERD_VALUE_SIZE 32
@@ -30,8 +30,8 @@
 #define MAX_SERVER_PORTS 4
 // #define NUM_WORKERS 12
 // #define NUM_CLIENTS 70
-#define NUM_WORKERS 14
-#define NUM_CLIENTS 14
+#define NUM_WORKERS 2
+#define NUM_CLIENTS 2
 
 
 /* Performance options */
@@ -44,7 +44,7 @@
 
 /* SHM key for the 1st request region created by master. ++ for other RRs.*/
 #define MASTER_SHM_KEY 24
-#define RR_SIZE (16 * 1024 * 1024) /* Request region size */
+#define RR_SIZE (512 * 1024) /* Request region size */
 #define OFFSET(wn, cn, ws) \
   ((wn * NUM_CLIENTS * WINDOW_SIZE) + (cn * WINDOW_SIZE) + ws)
 

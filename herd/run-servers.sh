@@ -41,4 +41,4 @@ sudo LD_LIBRARY_PATH=/usr/local/lib/ -E \
 	--is-client 0 \
 	--base-port-index 0 \
 	--num-server-ports 2 \
-	--postlist 32 &
+	--postlist 2 &

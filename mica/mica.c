@@ -25,7 +25,10 @@ void mica_init(struct mica_kv* kv, int instance_id, int node_id, int num_bkts,
 
   /* 16 million buckets = a 1 GB index */
   assert(is_power_of_2(num_bkts) == 1 && num_bkts <= M_16);
-  assert(log_cap > 0 && log_cap <= M_1024 && log_cap % M_2 == 0 &&
+  // assert(log_cap > 0 && log_cap <= M_1024 && log_cap % M_2 == 0 &&
+  //        is_power_of_2(log_cap));
+
+  assert(log_cap > 0 && log_cap <= M_1024 && log_cap % K_128 == 0 &&
          is_power_of_2(log_cap));
 
   assert(MICA_LOG_BITS >= 24); /* Minimum log size = 16 MB */

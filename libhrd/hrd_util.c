@@ -173,12 +173,34 @@ void* hrd_malloc_socket(int shm_key, int size, int socket_id) {
   }
 
   /* Bind the buffer to this socket */
-  const unsigned long nodemask = (1 << socket_id);
-  int ret = mbind(buf, size, MPOL_BIND, &nodemask, 32, 0);
-  if (ret != 0) {
-    printf("HRD: SHM malloc error. mbind() failed for key %d\n", shm_key);
-    exit(-1);
-  }
+  // const unsigned long nodemask = (1 << socket_id);
+  // printf("socket_id %d\n", socket_id);
+  // printf("buf %lu, size %d\n", (unsigned long)buf, size);
+  // int ret = mbind(buf, size, MPOL_BIND, &nodemask, 32, 0);
+  // if (ret != 0) {
+  //   printf("HRD: SHM malloc error. mbind() failed for key %d, errno = %d\n", shm_key, errno);
+  //   switch (errno)
+  //   {
+  //   case EFAULT:
+  //     printf("EFAULT\n");
+  //     break;
+  //   case EINVAL: 
+  //     printf("EINVAL\n");
+  //     break;
+  //   case EIO: 
+  //     printf("EIO\n");
+  //     break;
+  //   case ENOMEM: 
+  //     printf("ENOMEM\n");
+  //     break;
+  //   case EPERM: 
+  //     printf("EPERM\n");
+  //     break;
+  //   default:
+  //     break;
+  //   }
+  //   exit(-1);
+  // }
 
   return buf;
 }
