@@ -6,9 +6,8 @@ import subprocess
 
 user = 'yangzhou'
 # the first host is the localhost
-servers = list(map(lambda x: f'apt{x}.apt.emulab.net', [137]))
-clients = list(map(lambda x: f'apt{x}.apt.emulab.net', [141, 146, 147]))
-# clients = list(map(lambda x: f'apt{x}.apt.emulab.net', [141]))
+servers = list(map(lambda x: f'apt{x}.apt.emulab.net', ['115']))
+clients = list(map(lambda x: f'apt{x}.apt.emulab.net', ['097']))
 hosts = servers + clients
 
 Cmds = {

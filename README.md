@@ -141,3 +141,45 @@ Anuj Kalia (akalia@cs.cmu.edu)
         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
         See the License for the specific language governing permissions and
         limitations under the License.
+
+## How to run herd application on cloudlab: 
+
+http://docs.cloudlab.us/hardware.html R320 node or c6220 node, with ubuntu18.
+
+```
+sudo apt-get update
+echo Y | sudo apt-get install linux-headers-5.0.0-20 linux-headers-5.0.0-20-generic linux-hwe-edge-tools-5.0.0-20 linux-image-5.0.0-20-generic linux-modules-5.0.0-20-generic linux-tools-5.0.0-20-generic
+sudo reboot
+
+wget "http://content.mellanox.com/ofed/MLNX_OFED-4.6-1.0.1.1/MLNX_OFED_LINUX-4.6-1.0.1.1-ubuntu18.04-x86_64.tgz"
+tar xvf MLNX_OFED_LINUX-4.6-1.0.1.1-ubuntu18.04-x86_64.tgz
+cd MLNX_OFED_LINUX-4.6-1.0.1.1-ubuntu18.04-x86_64
+sudo ./mlnxofedinstall --add-kernel-support
+sudo /etc/init.d/openibd restart
+echo Y | sudo apt-get install libnuma-dev libmnl-dev libnl-3-dev libnl-route-3-dev
+echo Y | sudo apt-get install libcrypto++-dev libcrypto++-doc libcrypto++-utils
+echo Y | sudo apt-get install software-properties-common
+echo Y | sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+echo Y | sudo apt update
+echo Y | sudo apt-get install gcc-9 g++-9
+echo Y | sudo apt-get purge cmake
+echo Y | sudo apt install python-pip
+sudo pip install cmake
+echo Y | sudo apt-get install cmake memcached libgflags-dev libmemcached-dev numactl htop
+sudo mlxconfig -d mlx4_0 s LINK_TYPE_P2=2
+sudo ifconfig enp8s0d1 up
+sudo ifconfig ib0 up
+
+sudo ifconfig enp8s0d1 10.0.0.1
+sudo ifconfig ib0 20.0.0.1
+
+sudo ifconfig enp8s0d1 10.0.0.2
+sudo ifconfig ib0 20.0.0.2
+
+echo 6144 | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+echo kernel.shmmax = 9223372036854775807 | sudo tee -a /etc/sysctl.conf
+echo kernel.shmall = 1152921504606846720 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p /etc/sysctl.conf
+```
+
+Then `cd herd && python3 run-exper.py`
