@@ -19,7 +19,7 @@ flags="
 	--dual_port 0 \
     --use_uc 0 \
 	--is_client 0 \
-	--size 64 \
+	--size 4096 \
 	--postlist 1 \
 	--do_read 1
 "

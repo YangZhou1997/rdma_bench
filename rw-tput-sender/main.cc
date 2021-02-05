@@ -106,6 +106,7 @@ void run_server(thread_params_t* params) {
 
       tput[srv_gid] = rolling_iter / seconds;
       printf("main: Server %zu: %.2f IOPS\n", srv_gid, tput[srv_gid]);
+      printf("main: Server %zu: %.2f Gbps\n", srv_gid, tput[srv_gid] * FLAGS_size * 8 * 1e-9);
 
       // Collecting stats at every server can reduce tput by ~ 10%
       if (srv_gid == 0 && rand() % 5 == 0) {
