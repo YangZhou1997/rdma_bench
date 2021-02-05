@@ -62,3 +62,5 @@ scripts/autorun_node_file
 gdb_history
 
 **/*.log
+
+rw-tput-sender

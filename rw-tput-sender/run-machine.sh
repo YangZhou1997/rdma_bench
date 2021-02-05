@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 source $(dirname $0)/../scripts/utils.sh
 source $(dirname $0)/../scripts/mlx_env.sh
-export HRD_REGISTRY_IP="10.10.1.1"
+export HRD_REGISTRY_IP="10.0.0.1"
 
 drop_shm
 
 # lsync messes up permissions
-executable="../build/rw-tput-sender"
+executable="rw-tput-sender"
 chmod +x $executable
 
 num_threads=1			# Threads per client machine
@@ -35,7 +35,7 @@ flags="\
 
 # Check for non-gdb mode
 if [ "$#" -eq 1 ]; then
-  sudo -E numactl --cpunodebind=0 --membind=0 $executable $flags
+  sudo -E numactl --cpunodebind=0 --membind=0 ./$executable $flags
 fi
 
 # Check for gdb mode

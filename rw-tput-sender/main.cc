@@ -1,7 +1,7 @@
 #include <gflags/gflags.h>
 #include <limits>
 #include <thread>
-#include "libhrd_cpp/hrd.h"
+#include "../libhrd_cpp/hrd.h"
 
 static constexpr size_t kAppNumQPs = 1;
 static constexpr size_t kAppBufSize = 8192;
